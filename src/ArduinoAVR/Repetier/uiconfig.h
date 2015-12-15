@@ -73,7 +73,7 @@ works, use the ascii charset 0 as fallback. Not the nicest for everything but wo
 2 = Piezo connected to a pin over I2C
 */
 #ifndef BEEPER_TYPE
-#define BEEPER_TYPE 1
+#define BEEPER_TYPE 0
 #define BEEPER_TYPE_INVERTING false
 #endif
 
@@ -98,7 +98,7 @@ What display type do you use?
                If you have Sanguino and want to use the library, you need to have Arduino 023 or older. (13.04.2012)
 5 = U8G supported display
 */
-#define UI_DISPLAY_TYPE 5
+#define UI_DISPLAY_TYPE DISPLAY_4BIT
 
 #if UI_DISPLAY_TYPE == DISPLAY_U8G // Special case for graphic displays
 
@@ -215,17 +215,17 @@ Define the pin
 #define UI_DISPLAY_D7_PIN _BV(9)*/
 
 #else // Direct display connections
-#define UI_DISPLAY_RS_PIN		63		// PINK.1, 88, D_RS
+#define UI_DISPLAY_RS_PIN		6 		// PINK.1, 88, D_RS
 #define UI_DISPLAY_RW_PIN		-1
-#define UI_DISPLAY_ENABLE_PIN	        65		// PINK.3, 86, D_E
-#define UI_DISPLAY_D0_PIN		59		// PINF.5, 92, D_D4
-#define UI_DISPLAY_D1_PIN		64		// PINK.2, 87, D_D5
-#define UI_DISPLAY_D2_PIN		44		// PINL.5, 40, D_D6
-#define UI_DISPLAY_D3_PIN		66		// PINK.4, 85, D_D7
-#define UI_DISPLAY_D4_PIN		59		// PINF.5, 92, D_D4
-#define UI_DISPLAY_D5_PIN		64		// PINK.2, 87, D_D5
-#define UI_DISPLAY_D6_PIN		44		// PINL.5, 40, D_D6
-#define UI_DISPLAY_D7_PIN		66		// PINK.4, 85, D_D7
+#define UI_DISPLAY_ENABLE_PIN	        7		// PINK.3, 86, D_E
+#define UI_DISPLAY_D0_PIN		8 		// PINF.5, 92, D_D4
+#define UI_DISPLAY_D1_PIN		9 		// PINK.2, 87, D_D5
+#define UI_DISPLAY_D2_PIN		10		// PINL.5, 40, D_D6
+#define UI_DISPLAY_D3_PIN		11		// PINK.4, 85, D_D7
+#define UI_DISPLAY_D4_PIN		8 		// PINF.5, 92, D_D4
+#define UI_DISPLAY_D5_PIN		9 		// PINK.2, 87, D_D5
+#define UI_DISPLAY_D6_PIN		10		// PINL.5, 40, D_D6
+#define UI_DISPLAY_D7_PIN		11		// PINK.4, 85, D_D7
 #define UI_DELAYPERCHAR		   50
 
 // Special pins for some u8g driven display
@@ -233,7 +233,7 @@ Define the pin
 #define UI_DISPLAY_CS1 59
 #define UI_DISPLAY_CS2 59
 #define UI_DISPLAY_DI 59
-#define UI_DISPLAY_RW_PIN 59
+//#define UI_DISPLAY_RW_PIN 59
 #define UI_DISPLAY_RESET_PIN 59
 #endif
 
@@ -243,7 +243,7 @@ Define the pin
 0 = No keys attached - disables also menu
 1 = Some keys attached
 */
-#define UI_HAS_KEYS 0
+#define UI_HAS_KEYS 1
 
 
 /** \brief Is a back key present.
@@ -369,7 +369,7 @@ const int matrixActions[] PROGMEM = UI_MATRIX_ACTIONS;
 void uiInitKeys() {
 #if UI_HAS_KEYS!=0
   //UI_KEYS_INIT_CLICKENCODER_LOW(33,31); // click encoder on pins 47 and 45. Phase is connected with gnd for signals.
-  UI_KEYS_INIT_BUTTON_LOW(4); // push button, connects gnd to pin
+  UI_KEYS_INIT_BUTTON_LOW(16); // push button, connects gnd to pin
   UI_KEYS_INIT_BUTTON_LOW(5);
   UI_KEYS_INIT_BUTTON_LOW(6);
   UI_KEYS_INIT_BUTTON_LOW(11);
@@ -384,7 +384,7 @@ void uiCheckKeys(uint16_t &action) {
 #if UI_HAS_KEYS!=0
 
  //UI_KEYS_CLICKENCODER_LOW_REV(33,31); // click encoder on pins 47 and 45. Phase is connected with gnd for signals.
- UI_KEYS_BUTTON_LOW(4,UI_ACTION_OK); // push button, connects gnd to pin
+ UI_KEYS_BUTTON_LOW(16,UI_ACTION_OK); // push button, connects gnd to pin
  UI_KEYS_BUTTON_LOW(5,UI_ACTION_NEXT); // push button, connects gnd to pin
  UI_KEYS_BUTTON_LOW(6,UI_ACTION_PREVIOUS); // push button, connects gnd to pin
  UI_KEYS_BUTTON_LOW(11,UI_ACTION_BACK); // push button, connects gnd to pin

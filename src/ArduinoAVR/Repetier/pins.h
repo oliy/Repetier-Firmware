@@ -375,47 +375,47 @@ STEPPER_CURRENT_CONTROL
 
 #ifdef RAMPS_V_1_3
 
-#define ORIG_X_STEP_PIN         54
-#define ORIG_X_DIR_PIN          55
-#define ORIG_X_ENABLE_PIN       38
-#define ORIG_X_MIN_PIN          3
-#define ORIG_X_MAX_PIN          2
+#define ORIG_X_STEP_PIN         23
+#define ORIG_X_DIR_PIN          24
+#define ORIG_X_ENABLE_PIN       22
+#define ORIG_X_MIN_PIN          35
+#define ORIG_X_MAX_PIN          -1
 
-#define ORIG_Y_STEP_PIN         60
-#define ORIG_Y_DIR_PIN          61
-#define ORIG_Y_ENABLE_PIN       56
-#define ORIG_Y_MIN_PIN          14
-#define ORIG_Y_MAX_PIN          15
+#define ORIG_Y_STEP_PIN         26
+#define ORIG_Y_DIR_PIN          27
+#define ORIG_Y_ENABLE_PIN       25
+#define ORIG_Y_MIN_PIN          36
+#define ORIG_Y_MAX_PIN          -1
 
-#define ORIG_Z_STEP_PIN         46
-#define ORIG_Z_DIR_PIN          48
-#define ORIG_Z_ENABLE_PIN       62
-#define ORIG_Z_MIN_PIN          18
-#define ORIG_Z_MAX_PIN          19
+#define ORIG_Z_STEP_PIN         29
+#define ORIG_Z_DIR_PIN          39
+#define ORIG_Z_ENABLE_PIN       28
+#define ORIG_Z_MIN_PIN          37
+#define ORIG_Z_MAX_PIN          -1
 
-#define ORIG_E0_STEP_PIN         26
-#define ORIG_E0_DIR_PIN          28
-#define ORIG_E0_ENABLE_PIN       24
+#define ORIG_E0_STEP_PIN         31
+#define ORIG_E0_DIR_PIN          32
+#define ORIG_E0_ENABLE_PIN       30
 
-#define ORIG_E1_STEP_PIN         36
-#define ORIG_E1_DIR_PIN          34
-#define ORIG_E1_ENABLE_PIN       30
+#define ORIG_E1_STEP_PIN         -1
+#define ORIG_E1_DIR_PIN          -1
+#define ORIG_E1_ENABLE_PIN       -1
 
 #define SDPOWER            -1
 #define SDSS               53
 #define ORIG_SDCARDDETECT 	    49
 
 #define LED_PIN            13
-#define ORIG_FAN_PIN            9
+#define ORIG_FAN_PIN            5
 #define ORIG_PS_ON_PIN          12
 
-#define HEATER_0_PIN       10
-#define HEATER_1_PIN       8
-#define HEATER_2_PIN       9
+#define HEATER_0_PIN       2
+#define HEATER_1_PIN       3
+#define HEATER_2_PIN       -1
 // ANALOG NUMBERING
 #define TEMP_0_PIN         13   
 #define TEMP_1_PIN         14
-#define TEMP_2_PIN         15
+#define TEMP_2_PIN         -1
 #define E0_PINS ORIG_E0_STEP_PIN,ORIG_E0_DIR_PIN,ORIG_E0_ENABLE_PIN,
 #define E1_PINS ORIG_E1_STEP_PIN,ORIG_E1_DIR_PIN,ORIG_E1_ENABLE_PIN,
 
