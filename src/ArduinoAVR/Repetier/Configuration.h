@@ -521,6 +521,7 @@ Retractions speeds are taken from RETRACTION_SPEED and RETRACTION_UNDO_SPEED
    1 = Distance between signal changes increase
    2 = signal gets high
    3 = signal gets low
+
    
    2 and 3 are not jam detections, but only out of filament detection by a switch
    that changes the signal! 
@@ -815,23 +816,23 @@ on this endstop.
 #define ENDSTOP_PULLUP_Z_MIN false
 #define ENDSTOP_PULLUP_X_MAX true
 #define ENDSTOP_PULLUP_Y_MAX true
-#define ENDSTOP_PULLUP_Z_MAX false
+#define ENDSTOP_PULLUP_Z_MAX true
 
 //set to true to invert the logic of the endstops
 #define ENDSTOP_X_MIN_INVERTING true
 #define ENDSTOP_Y_MIN_INVERTING true
 #define ENDSTOP_Z_MIN_INVERTING true
-#define ENDSTOP_X_MAX_INVERTING false
-#define ENDSTOP_Y_MAX_INVERTING false
+#define ENDSTOP_X_MAX_INVERTING true
+#define ENDSTOP_Y_MAX_INVERTING true
 #define ENDSTOP_Z_MAX_INVERTING true
 
 // Set the values true where you have a hardware endstop. The Pin number is taken from pins.h.
 
-#define MIN_HARDWARE_ENDSTOP_X true
-#define MIN_HARDWARE_ENDSTOP_Y true
+#define MIN_HARDWARE_ENDSTOP_X false
+#define MIN_HARDWARE_ENDSTOP_Y false
 #define MIN_HARDWARE_ENDSTOP_Z false
-#define MAX_HARDWARE_ENDSTOP_X false
-#define MAX_HARDWARE_ENDSTOP_Y false
+#define MAX_HARDWARE_ENDSTOP_X true
+#define MAX_HARDWARE_ENDSTOP_Y true
 #define MAX_HARDWARE_ENDSTOP_Z true
 
 //If your axes are only moving in one direction, make sure the endstops are connected properly.
@@ -1379,6 +1380,7 @@ to recalibrate z.
 /* How is z min measured
  0 = trigger is height of real bed neglecting coating
  1 = trigger is current coating
+
  
  For mode 1 the current coating thickness is added to measured z probe distances.
  That way the real bed is always the reference height. For inductive sensors
@@ -1387,9 +1389,9 @@ to recalibrate z.
 #define Z_PROBE_Z_OFFSET_MODE 0
 
 #define FEATURE_Z_PROBE 1
-#define Z_PROBE_PIN 63
+#define Z_PROBE_PIN 38
 #define Z_PROBE_PULLUP 1
-#define Z_PROBE_ON_HIGH 1
+#define Z_PROBE_ON_HIGH 0
 #define Z_PROBE_X_OFFSET 0
 #define Z_PROBE_Y_OFFSET 0
 #define Z_PROBE_BED_DISTANCE 5.0 // Higher than max bed level distance error in mm
@@ -1457,7 +1459,7 @@ motorized bed leveling */
    This feature requires a working z-probe and you should have z-endstop at the top not at the bottom.
    The same 3 points are used for the G29 command.
 */
-#define FEATURE_AUTOLEVEL 0
+#define FEATURE_AUTOLEVEL 1
 #define Z_PROBE_X1 100
 #define Z_PROBE_Y1 20
 #define Z_PROBE_X2 160
