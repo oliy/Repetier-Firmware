@@ -156,7 +156,7 @@ pins. Separate multiple GCODEs with \n
 #define PULLEY_CIRCUMFERENCE (BELT_PITCH * PULLEY_TEETH)
 #elif DELTA_DRIVE_TYPE == 1
 /** \brief Filament pulley diameter in millimeters */
-#define PULLEY_DIAMETER 10
+#define PULLEY_DIAMETER 14.89
 #define PULLEY_CIRCUMFERENCE (PULLEY_DIAMETER * 3.1415927)
 #endif
 
@@ -234,7 +234,7 @@ controlled by settings in extruder 0 definition. */
 #define EXT0_Y_OFFSET 0
 #define EXT0_Z_OFFSET 0
 // for skeinforge 40 and later, steps to pull the plastic 1 mm inside the extruder, not out.  Overridden if EEPROM activated.
-#define EXT0_STEPS_PER_MM 413 //385
+#define EXT0_STEPS_PER_MM 153 //385
 // What type of sensor is used?
 // 0 is no thermistor/temperature control
 // 1 is 100k thermistor (Epcos B57560G0107F000 - RepRap-Fab.org and many other)
@@ -267,7 +267,7 @@ controlled by settings in extruder 0 definition. */
 #define EXT0_STEP_PIN E0_STEP_PIN
 #define EXT0_DIR_PIN E0_DIR_PIN
 // set to false/true for normal / inverse direction
-#define EXT0_INVERSE true
+#define EXT0_INVERSE false
 #define EXT0_ENABLE_PIN E0_ENABLE_PIN
 // For Inverting Stepper Enable Pins (Active Low) use 0, Non Inverting (Active High) use 1
 #define EXT0_ENABLE_ON 0
@@ -294,7 +294,7 @@ controlled by settings in extruder 0 definition. */
 - 3 = Dead-time control. PID_P becomes dead-time in seconds.
  Overridden if EEPROM activated.
 */
-#define EXT0_HEAT_MANAGER 0
+#define EXT0_HEAT_MANAGER 1
 /** Wait x seconds, after reaching target temperature. Only used for M109.  Overridden if EEPROM activated. */
 #define EXT0_WATCHPERIOD 1
 
@@ -911,7 +911,7 @@ on this endstop.
 // If EEPROM is enabled these values will be overridden with the values in the EEPROM
 #define X_MAX_LENGTH 125
 #define Y_MAX_LENGTH 145
-#define Z_MAX_LENGTH 108.0
+#define Z_MAX_LENGTH 153.310
 // Coordinates for the minimum axis. Can also be negative if you want to have the bed start at 0 and the printer can go to the left side
 // of the bed. Maximum coordinate is given by adding the above X_MAX_LENGTH values.
 #define X_MIN_POS 0
@@ -944,7 +944,7 @@ on this endstop.
 #if DRIVE_SYSTEM==DELTA
 /** \brief Delta rod length (mm)
 */
-#define DELTA_DIAGONAL_ROD 380 // mm
+#define DELTA_DIAGONAL_ROD 386 // mm
 
 
 /*  =========== Parameter essential for delta calibration ===================
@@ -981,7 +981,7 @@ on this endstop.
 #define DELTA_DIAGONAL_CORRECTION_C 0
 
 /** Max. radius (mm) the printer should be able to reach. */
-#define DELTA_MAX_RADIUS 60
+#define DELTA_MAX_RADIUS 80
 
 // Margin (mm) to avoid above tower minimum (xMin xMinsteps)
 // If your printer can put its carriage low enough the rod is horizontal without hitting the floor
@@ -1004,7 +1004,7 @@ on this endstop.
   measured from the center of the print area to the vertical smooth tower.
   Alternately set this to the pivot to pivot horizontal rod distance, when head is at (0,0)
 */
-#define PRINTER_RADIUS 150
+#define PRINTER_RADIUS 149.5
 
 /** 1 for more precise delta moves. 0 for faster computation.
 Needs a bit more computation time. */
@@ -1058,14 +1058,14 @@ Mega. Used only for nonlinear systems like delta or tuga. */
     The axis order in all axis related arrays is X, Y, Z
      Overridden if EEPROM activated.
     */
-#define MAX_FEEDRATE_X 200
-#define MAX_FEEDRATE_Y 200
-#define MAX_FEEDRATE_Z 40
+#define MAX_FEEDRATE_X 400
+#define MAX_FEEDRATE_Y 400
+#define MAX_FEEDRATE_Z 400
 
 /** Home position speed in mm/s. Overridden if EEPROM activated. */
-#define HOMING_FEEDRATE_X 80
-#define HOMING_FEEDRATE_Y 80
-#define HOMING_FEEDRATE_Z 3
+#define HOMING_FEEDRATE_X 20
+#define HOMING_FEEDRATE_Y 20
+#define HOMING_FEEDRATE_Z 20
 
 /** Set order of axis homing. Use HOME_ORDER_XYZ and replace XYZ with your order. 
  * If you measure Z with your extruder tip you need a hot extruder to get right measurement. In this
@@ -1183,7 +1183,7 @@ Corner can be printed with full speed of 50 mm/s
 Overridden if EEPROM activated.
 */
 #define MAX_JERK 20.0
-#define MAX_ZJERK 0.3
+#define MAX_ZJERK 20.0
 
 /** \brief Number of moves we can cache in advance.
 
@@ -1302,7 +1302,7 @@ matches, the stored values are used to overwrite the settings.
 IMPORTANT: With mode <>0 some changes in Configuration.h are not set any more, as they are
            taken from the EEPROM.
 */
-#define EEPROM_MODE 0
+#define EEPROM_MODE 1
 
 
 /**************** duplicate motor driver ***************
@@ -1405,7 +1405,7 @@ to recalibrate z.
 #define Z_PROBE_SWITCHING_DISTANCE 1.5 // Distance to safely switch off probe after it was activated
 #define Z_PROBE_REPETITIONS 5 // Repetitions for probing at one point.
 /** Distance between nozzle and bed when probe triggers. */
-#define Z_PROBE_HEIGHT -2.1
+#define Z_PROBE_HEIGHT 0.24
 /** These scripts are run before resp. after the z-probe is done. Add here code to activate/deactivate probe if needed. */
 #define Z_PROBE_START_SCRIPT ""
 #define Z_PROBE_FINISHED_SCRIPT ""
@@ -1460,12 +1460,12 @@ motorized bed leveling */
    The same 3 points are used for the G29 command.
 */
 #define FEATURE_AUTOLEVEL 1
-#define Z_PROBE_X1 70
-#define Z_PROBE_Y1 -10
-#define Z_PROBE_X2 -20
-#define Z_PROBE_Y2 60
-#define Z_PROBE_X3 -20
-#define Z_PROBE_Y3 -45
+#define Z_PROBE_X1 -60
+#define Z_PROBE_Y1 -60
+#define Z_PROBE_X2 60
+#define Z_PROBE_Y2 -60
+#define Z_PROBE_X3 -60
+#define Z_PROBE_Y3 60
 /* Bending correction adds a value to a measured z-probe value. This may be
   required when the z probe needs some force to trigger and this bends the
   bed down. Currently the correction values A/B/C correspond to z probe
